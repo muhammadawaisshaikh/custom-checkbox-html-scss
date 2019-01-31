@@ -1,5 +1,32 @@
 $transitionPointFive: 0.3s;
 
+   // responsive
+   @mixin breakpoint($class) {
+    @if $class == xs {
+      @media (max-width: 375px) { @content; }
+    }
+  
+    @else if $class == sm {
+      @media (max-width: 600px) { @content; }
+    }
+  
+    @else if $class == md {
+      @media (max-width: 768px) { @content; }
+    }
+  
+    @else if $class == lg {
+      @media (max-width: 1366px) { @content; }
+    }
+  
+    @else if $class == xl {
+      @media (max-width: 1920px) { @content; }
+    }
+  
+    @else {
+      @warn "Breakpoint mixin supports: xs, sm, md, lg, xl";
+    }
+  }
+
 // usage of mixin
 .custom-checkbox {
     position: relative;
@@ -72,32 +99,5 @@ $transitionPointFive: 0.3s;
         letter-spacing: 0.1px;
         color: #1e1f22;
         padding: 0 0 0 10px;
-    }
-  }
-
-   // responsive
-@mixin breakpoint($class) {
-    @if $class == xs {
-      @media (max-width: 375px) { @content; }
-    }
-  
-    @else if $class == sm {
-      @media (max-width: 600px) { @content; }
-    }
-  
-    @else if $class == md {
-      @media (max-width: 768px) { @content; }
-    }
-  
-    @else if $class == lg {
-      @media (max-width: 1366px) { @content; }
-    }
-  
-    @else if $class == xl {
-      @media (max-width: 1920px) { @content; }
-    }
-  
-    @else {
-      @warn "Breakpoint mixin supports: xs, sm, md, lg, xl";
     }
   }
